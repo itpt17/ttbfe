@@ -13,7 +13,6 @@ function Login(){
         var cookie = '';
         const parts = cookies.split(`; __token=`);
         if (parts.length === 2) cookie =  parts.pop().split(';').shift();
-        console.log(cookie);
         axios({
             method:'GET',
             url: 'https://timtable-server.herokuapp.com/connect',

@@ -10,8 +10,7 @@ function Home(){
     const [file,setFile] = useState(null);
     const dispatch = useDispatch();
     const TimeTable = useSelector(state=>state.TimeTable).TimeTable;
-    const Work = useSelector(state=>state.Work).work;
-    console.log(Work);    
+    const Work = useSelector(state=>state.Work).work;  
     const [week,setWeek] = useState(1);
     const [thu,setThu] = useState(-1);
     const [tiet,setTiet] = useState(-1);
@@ -29,7 +28,6 @@ function Home(){
         var cookie = '';
         const parts = cookies.split(`; __token=`);
         if (parts.length === 2) cookie =  parts.pop().split(';').shift();
-        console.log(cookie);
         axios({
             method:'GET',
             url: 'https://timtable-server.herokuapp.com/connect',
@@ -37,7 +35,6 @@ function Home(){
                 Authorization: cookie
             }
         }).then((res)=>{
-            console.log(res);
             if(res.status==200) {
                 axios({
                     method:'POST',
@@ -48,7 +45,6 @@ function Home(){
                 }).then((res)=>{
                     dispatch(updateTimeTable(res.data.result));
                 }).catch((err)=>{
-                    console.log(err);
                 })
                 axios({
                     method:'POST',
@@ -59,7 +55,6 @@ function Home(){
                 }).then((res)=>{
                     dispatch(updateWork(res.data.work));
                 }).catch((err)=>{
-                    console.log(err);
                 })
                 var today = new Date().getTime();
                 var theta = today - begindate.getTime();
