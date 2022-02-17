@@ -114,6 +114,17 @@ function Home(){
         var addform = document.querySelector(".addwork");
         addform.classList.add("d-none");
     }
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+      }
+      
+      function formatDate(date) {
+        return [
+          padTo2Digits(date.getDate()),
+          padTo2Digits(date.getMonth() + 1),
+          date.getFullYear(),
+        ].join('/');
+      }
     function deletework(){
         const cookies = `; ${document.cookie}`;
         var cookie = '';
@@ -181,17 +192,17 @@ function Home(){
         })
     }
     var daystart = new Date(begindate.getTime() + ((week-1)*7*24*60*60*1000));
-    var tgb = "THỜI GIAN BIỂU ( Tuần " + week + " | " + daystart.toLocaleDateString() + "-" + new Date(daystart.getTime() + 6*24*60*60*1000).toLocaleDateString() + ")";
+    var tgb = "THỜI GIAN BIỂU ( Tuần " + week + " | " + formatDate(daystart) + "-" + formatDate(new Date(daystart.getTime() + 6*24*60*60*1000)) + ")";
     var day = (
         <tr>
             <th className="time"></th>
-            <th title={"Ngày: " + daystart.toLocaleDateString()}>Thứ 2</th>
-            <th title={"Ngày: " + new Date(daystart.getTime() + (24*60*60*1000)).toLocaleDateString()}>Thứ 3</th>
-            <th title={"Ngày: " + new Date(daystart.getTime() + (2*24*60*60*1000)).toLocaleDateString()}>Thứ 4</th>
-            <th title={"Ngày: " + new Date(daystart.getTime() + (3*24*60*60*1000)).toLocaleDateString()}>Thứ 5</th>
-            <th title={"Ngày: " + new Date(daystart.getTime() + (4*24*60*60*1000)).toLocaleDateString()}>Thứ 6</th>
-            <th title={"Ngày: " + new Date(daystart.getTime() + (5*24*60*60*1000)).toLocaleDateString()}>Thứ 7</th>
-            <th title={"Ngày: " + new Date(daystart.getTime() + (6*24*60*60*1000)).toLocaleDateString()}>Chủ nhật</th>
+            <th title={"Ngày: " + formatDate(daystart)}>Thứ 2</th>
+            <th title={"Ngày: " + formatDate(new Date(daystart.getTime() + (24*60*60*1000)))}>Thứ 3</th>
+            <th title={"Ngày: " + formatDate(new Date(daystart.getTime() + (2*24*60*60*1000)))}>Thứ 4</th>
+            <th title={"Ngày: " + formatDate(new Date(daystart.getTime() + (3*24*60*60*1000)))}>Thứ 5</th>
+            <th title={"Ngày: " + formatDate(new Date(daystart.getTime() + (4*24*60*60*1000)))}>Thứ 6</th>
+            <th title={"Ngày: " + formatDate(new Date(daystart.getTime() + (5*24*60*60*1000)))}>Thứ 7</th>
+            <th title={"Ngày: " + formatDate(new Date(daystart.getTime() + (6*24*60*60*1000)))}>Chủ nhật</th>
         </tr>
     )
     var lesson = [];
