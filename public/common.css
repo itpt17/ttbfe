@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.none-select{
+    user-select: none !important;
+}
+
+.f-14{
+    font-size: 14px !important;
+}
+
+.f-12{
+    font-size: 12px !important;
+}
+.f-big{
+    font-size: 23px !important;
+}
+.f-bold{
+    font-weight: bold;
+}
+
+.bg-main{
+    background-color: #011f4b !important;
+}
+
+.text-main{
+    color: #011f4b !important;
+}
+
+.ubuntu-font{
+    font-family: 'Ubuntu Condensed', sans-serif !important;
+}
+
+.text-white{
+    color: white !important;
+}
+
+.navbar{
+    padding: 3px 20px !important;
+    width: 28px !important;
+    z-index: 10;
+}
+.login-function:hover .my-tooltip{
+    display: block;
+}
+.register-function:hover .my-tooltip{
+    display: block;
+}
+.my-tooltip{
+    background-color: black;
+    color: white !important;
+    text-align: center;
+    font-size: 14px !important;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 100px;
+    line-height: 28px;
+    height: 28px;
+    display: none;
+}
+
+.tooltip-br{
+    top: calc(100% + 5px);
+    right: 0;
+}
+
